@@ -1,0 +1,12 @@
+footer{
+    display: inline-flex;
+}
+h3{
+    padding-right: 250px;
+}
+header img{
+    width: 280px;
+}
+body{
+    background-color:#e2c583;
+}
