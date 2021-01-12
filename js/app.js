@@ -19,6 +19,7 @@ thtag = document.createElement('th');         // Creat th for daily location tot
 trtag.appendChild(thtag);
 thtag.textContent = ' Daily Location Total';
 
+var StoreArray = [];
 function Branches(location, minnumcusph, maxnumcusph, avgcookiepcus) {
     this.location = location;
     this.minnumcusph = minnumcusph;
@@ -27,14 +28,14 @@ function Branches(location, minnumcusph, maxnumcusph, avgcookiepcus) {
     this.totalcookies = 0;
     this.cusperhour = [];
     this.numcookiepurch = [];
+    StoreArray.push(this);
 }
 Branches.prototype.calcusperhour = function () {
     var randomcusnum;
     for (var i = 0; i < workhours.length; i++) {
         randomcusnum = Math.floor(Math.random() * (this.maxnumcusph - this.minnumcusph + 1) + this.minnumcusph);
         this.cusperhour.push(randomcusnum);
-    } console.log(this.cusperhour)
-    return this.cusperhour;
+    }
 }
 Branches.prototype.calcnumcookiepurch = function () {
     var cookiespurchased;
@@ -42,9 +43,7 @@ Branches.prototype.calcnumcookiepurch = function () {
         cookiespurchased = Math.floor(this.avgcookiepcus * this.cusperhour[i]);
         this.numcookiepurch.push(cookiespurchased);
         this.totalcookies = this.totalcookies + this.numcookiepurch[i];
-    } console.log(this.numcookiepurch)
-    console.log(this.totalcookies);
-    return this.numcookiepurch;
+    }
 }
 Branches.prototype.TabelResults = function () {
     var tdtag;
@@ -88,7 +87,8 @@ Lima.calcusperhour();
 Lima.calcnumcookiepurch();
 Lima.TabelResults();
 
-var StoreArray = [Seattle, Tokyo, Dubai, Paris, Lima];
+
+
 console.log('Arrayofobject', StoreArray);
 trtag = document.createElement('tr');
 tabletag.appendChild(trtag);
@@ -96,9 +96,10 @@ tdtag = document.createElement('td');
 trtag.appendChild(tdtag);
 tdtag.textContent = 'Total';
 
+var sumcookieperhour;
 var Totaloftotals = 0;
 for (var y = 0; y < workhours.length; y++) {
-    var sumcookieperhour = 0;
+    sumcookieperhour = 0;
     for (var z = 0; z < StoreArray.length; z++) {
         sumcookieperhour = StoreArray[z].numcookiepurch[y] + sumcookieperhour
     }
