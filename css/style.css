@@ -13,6 +13,7 @@ footer{
 #subhead{
     color: teal;
     text-align: center;
+    z-index: -1;
 }
 h2{
     margin-right: 45px;
