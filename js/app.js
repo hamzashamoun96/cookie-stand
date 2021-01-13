@@ -63,31 +63,16 @@ Branches.prototype.TabelResults = function () {
 }
 
 var Seattle = new Branches('Seattle', 23, 65, 6.3)
-Seattle.calcusperhour();
-Seattle.calcnumcookiepurch();
-Seattle.TabelResults();
-
 var Tokyo = new Branches('Tokyo', 3, 24, 1.2)
-Tokyo.calcusperhour();
-Tokyo.calcnumcookiepurch();
-Tokyo.TabelResults();
-
 var Dubai = new Branches('Dubai', 11, 38, 3.7)
-Dubai.calcusperhour();
-Dubai.calcnumcookiepurch();
-Dubai.TabelResults();
-
 var Paris = new Branches('Paris', 20, 38, 2.3)
-Paris.calcusperhour();
-Paris.calcnumcookiepurch();
-Paris.TabelResults();
-
 var Lima = new Branches('Lima', 2, 16, 4.6)
-Lima.calcusperhour();
-Lima.calcnumcookiepurch();
-Lima.TabelResults();
 
-
+for(var i = 0;i<StoreArray.length;i++){
+    StoreArray[i].calcusperhour();
+    StoreArray[i].calcnumcookiepurch();
+    StoreArray[i].TabelResults();
+}
 
 console.log('Arrayofobject', StoreArray);
 trtag = document.createElement('tr');
